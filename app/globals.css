@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom global styles */
-body {
-  @apply text-zinc-900 bg-white antialiased;
-}
+:root { color-scheme: light dark; }
+body { @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100; }
+a { @apply underline underline-offset-2; }
+h1,h2,h3 { @apply font-bold; }
