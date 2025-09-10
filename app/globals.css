@@ -2,7 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light dark; }
-body { @apply bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100; }
-a { @apply underline underline-offset-2; }
-h1,h2,h3 { @apply font-bold; }
+/* Paper-like background + tokens */
+:root {
+  --paper: 255 255 255;
+}
+.dark:root {
+  --paper: 9 9 11;
+}
+.bg-paper {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0.02)),
+    radial-gradient(1000px 400px at 10% -10%, rgba(0,0,0,0.04), transparent),
+    radial-gradient(800px 300px at 90% -20%, rgba(0,0,0,0.04), transparent),
+    rgb(var(--paper));
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply antialiased; }
+  .font-serif { font-family: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+  .font-sans  { font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif; }
+}
+
+.container-arch { @apply mx-auto max-w-6xl px-6; }
